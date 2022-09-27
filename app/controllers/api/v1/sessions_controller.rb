@@ -1,4 +1,4 @@
-class SessionsController  < ApplicationController
+class Api::V1::SessionsController < ApplicationController
     before_action only: [:destroy] do 
       authenticate_cookie
     end

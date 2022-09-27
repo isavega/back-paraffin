@@ -1,6 +1,6 @@
 ActiveAdmin.setup do |config|
   # Skip user authentication when using admin page
-  config.skip_before_action :authenticate_user!
+  # config.skip_before_action :authenticate_user!
 
   # == Site Title
   #

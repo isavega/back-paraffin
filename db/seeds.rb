@@ -3,6 +3,7 @@
 # The data can then be loaded with the bin/rails db:seed command (or created
 # alongside the database with db:setup).
 
+i_user = User.create(name: 'Isa', email: 'isa@fin.com', password: '123456')
 f_user = User.create(name: 'Ale', email: 'ale@paraffin.com', password: 'password')
 s_user = User.create(name: 'Cris', email: 'cris@paraffin.com', password: 'password')
 t_user = User.create(name: 'Rony', email: 'rony@paraffin.com', password: 'password')

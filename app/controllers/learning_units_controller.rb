@@ -2,6 +2,10 @@ class LearningUnitsController < ApplicationController
   before_action :set_curriculum, only: [:index]
   before_action :set_learning_unit, only: [:show]
 
+  before_action do 
+    authenticate_cookie
+  end
+
   def index
     @service = LearningUnits::DisplayUserLearningUnit.new(
       @curriculum,

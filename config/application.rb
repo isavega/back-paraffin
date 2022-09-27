@@ -11,7 +11,6 @@ module CookieMonster
   class Application < Rails::Application
     config.load_defaults 7.0
     config.autoload_paths += %W( lib/ )
-    config.api_only = true
     config.middleware.use ActionDispatch::Cookies
   end
 end

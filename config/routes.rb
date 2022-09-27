@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
+
+  namespace :api do 
+    namespace :v1 do
+      resources :sessions
+    end
+  end
 
   scope :api, defaults: {format: :json} do
     resources :curriculums

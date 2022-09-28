@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
 
+  namespace :api do 
+    namespace :v1 do
+      resources :sessions, only: [:create, :destroy]
+    end
+  end
+  
+
   scope :api, defaults: {format: :json} do
     resources :curriculums
   end

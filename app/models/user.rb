@@ -17,8 +17,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_secure_password
 
-  devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :validatable
+  # devise :database_authenticatable, :registerable,
+  # :recoverable, :rememberable, :validatable
 
   has_many :resources
   has_many :resource_comments

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'sessions' }, defaults: { format: :json }
+  devise_scope :user do
+    get 'users/current', to: 'sessions#show'
+  end
 
   resources :resources, only: %i[show] do
     resources :resource_comments, only: %i[create]

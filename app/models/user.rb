@@ -17,8 +17,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_secure_password
 
-  # devise :database_authenticatable, :registerable,
-  # :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable,
+  :recoverable, :rememberable, :validatable
 
   has_many :resources
   has_many :resource_comments
@@ -26,16 +26,15 @@ class User < ApplicationRecord
   has_many :completed_learning_units
 
   def self.handle_login(email, password)
-    user = User.find_by(email: email.downcase)
-    if user && user.authenticate(password)
-      puts "ENTREEE SI EXISTEEEE -------------------"
+    user = User.find_for_authentication(:email => email)
+    if user && user.encrypted_password == password 
+      # user exists and the password is correct
       user_info = Hash.new
       user_info[:token] = CoreModules::JsonWebToken.encode({user_id: user.id}, 4.hours.from_now)
       user_info[:user_id] = user.id
       user_info[:name] = user.name.capitalize
       return user_info
     else
-      puts "NO EXISTEEEE -------------------"
       return false
     end
   end

@@ -15,7 +15,7 @@ class Api::V1::SessionsController  < ApplicationController
   
     def create
       email = params["email"]
-      password = params["encrypted_password"] # deberia ser password, emulaba a device 
+      password = params["password"] 
       if email && password && email.length > 0 && password.length > 0
         login_hash = User.handle_login(email, password)
         if login_hash

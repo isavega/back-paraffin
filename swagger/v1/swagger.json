@@ -43,7 +43,7 @@
     },
     "/api/curriculums/{curriculum_id}": {
       "get": {
-        "summary": "Curriculum by id",
+        "summary": "Returns one curriculum by its id",
         "tags": [
           "Curriculums"
         ],
@@ -84,9 +84,9 @@
     },
     "/api/curriculums/{curriculum_id}/learning_units/{learning_unit_id}/resources": {
       "get": {
-        "summary": "Returns a list of all comments",
+        "summary": "Returns a list of all resources",
         "tags": [
-          "Comments"
+          "Resources"
         ],
         "parameters": [
           {

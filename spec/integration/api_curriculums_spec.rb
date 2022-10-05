@@ -45,7 +45,7 @@ RSpec.describe 'API Curriculums', type: :request do
 
   # A specific Curriculum
   path '/api/curriculums/{curriculum_id}' do
-    get 'Curriculum by id' do
+    get 'Returns one curriculum by its id' do
       tags 'Curriculums'
       produces 'application/json'
       parameter name: :curriculum_id, in: :path, type: :string

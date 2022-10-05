@@ -3,7 +3,7 @@ class ApiLearningUnitsController < ApiApplicationController
     learning_units = Curriculum
                      .find(params[:curriculum_id])
                      .learning_units
-    render json: learning_units, only: %i[id name]
+    render json: learning_units, only: %i[id name description]
   end
 
   def show

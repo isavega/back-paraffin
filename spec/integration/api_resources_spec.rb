@@ -112,10 +112,10 @@ RSpec.describe 'API Resources', type: :request do
     end
   end
 
-  # Create comment
+  # Create a new comment
 
   path '/api/curriculums/{curriculum_id}/learning_units/{learning_unit_id}/resources/{resource_id}/comments' do
-    post 'Create a new comment' do
+    post 'Creates a new comment' do
       tags 'Resources'
       consumes 'application/json'
       produces 'application/json'

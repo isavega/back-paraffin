@@ -14,6 +14,8 @@ RSpec.describe 'ApiLearningUnits', type: :request do
     sign_in user unless response.metadata[:skip_before]
   end
 
+  # GET
+
   # All Learning Units
   path '/api/curriculums/{curriculum_id}/learning_units' do
     get 'Returns a list of all learning units' do
@@ -69,6 +71,8 @@ RSpec.describe 'ApiLearningUnits', type: :request do
     end
   end
 
+  # POST
+
   # Mark a learning unit as completed
   path '/api/curriculums/{curriculum_id}/learning_units/{learning_unit_id}/completed_learning_unit' do
     post 'Marks a learning unit as completed' do
@@ -94,8 +98,3 @@ RSpec.describe 'ApiLearningUnits', type: :request do
     end
   end
 end
-
-# RSpec.describe 'ApiLearningUnits', type: :request do
-#   describe 'GET /index' do
-#     pending "add some examples (or delete) #{__FILE__}"
-#   end

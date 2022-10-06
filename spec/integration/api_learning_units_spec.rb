@@ -28,7 +28,8 @@ RSpec.describe 'ApiLearningUnits', type: :request do
           properties: {
             id: { type: :integer },
             name: { type: :string },
-            description: { type: :string }
+            description: { type: :string },
+            completed: {type: :boolean}
           }
         }
         run_test!

@@ -7,17 +7,16 @@ class ApiLearningUnitsController < ApiApplicationController
     checkpoints = []
 
     learning_units.each do |checkpoint|
-      json_hash ={
+      json_hash = {
         learning_unit_id: checkpoint.id,
         name: checkpoint.name,
         description: checkpoint.description,
-        completed:  checkpoint.completed_learning_units.exists?
+        completed: checkpoint.completed_learning_units.exists?
       }
       checkpoints << json_hash
     end
     render json: checkpoints
   end
-
 
   def show
     learning_unit = Curriculum

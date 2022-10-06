@@ -159,10 +159,38 @@ RSpec.describe 'API Resources', type: :request do
           user_id: { type: :integer },
           resource_id: { type: :integer }
         }
-        let(:curriculum_id) { create(:curriculum).id }
-        let(:learning_unit_id) { create(:learning_unit).id }
-        let(:resource_id) { create(:resource).id }
         let(:resource_comment) { create(:resource_comment, resource:, user:) }
+        run_test!
+      end
+    end
+  end
+
+  # Create a new evaluation
+
+  path '/api/curriculums/{curriculum_id}/learning_units/{learning_unit_id}/resources/{resource_id}/evaluations' do
+    post 'Creates a new evaluation' do
+      tags 'Resources'
+      consumes 'application/json'
+      produces 'application/json'
+      parameter name: :curriculum_id, in: :path, type: :string
+      parameter name: :learning_unit_id, in: :path, type: :string
+      parameter name: :resource_id, in: :path, type: :string
+      parameter name: :resource_evaluation, in: :body, schema: {
+        type: :object,
+        properties: {
+          evaluation: { type: :integer },
+          user_id: { type: :integer },
+          resource_id: { type: :integer }
+        }
+      }
+
+      response '201', 'Created' do
+        schema type: :object, properties: {
+          evaluation: { type: :integer },
+          user_id: { type: :integer },
+          resource_id: { type: :integer }
+        }
+        let(:resource_evaluation) { create(:resource_evaluation, resource:, user:) }
         run_test!
       end
     end

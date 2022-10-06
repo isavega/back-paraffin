@@ -13,7 +13,7 @@ class ApiLearningUnitsController < ApiApplicationController
   end
 
   def create_completed_learning_unit
-    # learning_unit = LearningUnit.find(params[:learning_unit_id])
+    learning_unit = LearningUnit.find(params[:learning_unit_id])
     completed_learning_unit = CompletedLearningUnit.create!(
       user_id: params[:user_id],
       learning_unit_id: params[:learning_unit_id]

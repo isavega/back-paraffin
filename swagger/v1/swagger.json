@@ -43,7 +43,7 @@
     },
     "/api/curriculums/{curriculum_id}": {
       "get": {
-        "summary": "Curriculum by id",
+        "summary": "Returns one curriculum by its id",
         "tags": [
           "Curriculums"
         ],
@@ -82,11 +82,166 @@
         }
       }
     },
+    "/api/curriculums/{curriculum_id}/learning_units": {
+      "get": {
+        "summary": "Returns a list of all learning units",
+        "tags": [
+          "Learning Units"
+        ],
+        "parameters": [
+          {
+            "name": "curriculum_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/curriculums/{curriculum_id}/learning_units/{learning_unit_id}": {
+      "get": {
+        "summary": "Returns one learning unit by its id",
+        "tags": [
+          "Learning Units"
+        ],
+        "parameters": [
+          {
+            "name": "curriculum_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "learning_unit_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/curriculums/{curriculum_id}/learning_units/{learning_unit_id}/completed_learning_unit": {
+      "post": {
+        "summary": "Marks a learning unit as completed",
+        "tags": [
+          "Learning Units"
+        ],
+        "parameters": [
+          {
+            "name": "curriculum_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "learning_unit_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "completed_learning_unit": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "integer"
+                  },
+                  "learning_unit_id": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/curriculums/{curriculum_id}/learning_units/{learning_unit_id}/resources": {
       "get": {
-        "summary": "Returns a list of all comments",
+        "summary": "Returns a list of all resources",
         "tags": [
-          "Comments"
+          "Resources"
         ],
         "parameters": [
           {
@@ -275,7 +430,7 @@
     },
     "/api/curriculums/{curriculum_id}/learning_units/{learning_unit_id}/resources/create": {
       "post": {
-        "summary": "Create a new resource",
+        "summary": "Creates a new resource",
         "tags": [
           "Resources"
         ],

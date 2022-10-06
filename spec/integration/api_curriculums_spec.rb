@@ -9,6 +9,8 @@ RSpec.describe 'API Curriculums', type: :request do
     sign_in user unless response.metadata[:skip_before]
   end
 
+  # GET
+
   # All Curriculums
   path '/api/curriculums' do
     get 'Returns a list of all curriculums' do
@@ -45,7 +47,7 @@ RSpec.describe 'API Curriculums', type: :request do
 
   # A specific Curriculum
   path '/api/curriculums/{curriculum_id}' do
-    get 'Curriculum by id' do
+    get 'Returns one curriculum by its id' do
       tags 'Curriculums'
       produces 'application/json'
       parameter name: :curriculum_id, in: :path, type: :string

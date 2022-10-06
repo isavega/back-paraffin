@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :learning_unit do
-    name { 'Full Stack Development' }
+    name { 'My learning unit' }
+    description { 'The best learning unit' }
   end
 end

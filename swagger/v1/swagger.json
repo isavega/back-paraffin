@@ -294,6 +294,66 @@
         }
       }
     },
+    "/api/curriculums/{curriculum_id}/learning_units/{learning_unit_id}/resources/{resource_id}": {
+      "get": {
+        "summary": "Returns one resource by its id",
+        "tags": [
+          "Resources"
+        ],
+        "parameters": [
+          {
+            "name": "curriculum_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "learning_unit_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "resource_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/curriculums/{curriculum_id}/learning_units/{learning_unit_id}/resources/{resource_id}/comments": {
       "get": {
         "summary": "Returns a list of all comments",
@@ -353,7 +413,7 @@
         }
       },
       "post": {
-        "summary": "Create a new comment",
+        "summary": "Creates a new comment",
         "tags": [
           "Resources"
         ],
@@ -492,6 +552,56 @@
                   },
                   "description": {
                     "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user": {
+      "get": {
+        "summary": "Returns the user info",
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "objet",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "properties": {
+                      "error": {
+                        "type": "string"
+                      }
+                    }
                   }
                 }
               }

@@ -42,6 +42,28 @@ RSpec.describe 'API Resources', type: :request do
     end
   end
 
+  # A specific Resource
+  path '/api/curriculums/{curriculum_id}/learning_units/{learning_unit_id}/resources/{resource_id}' do
+    get 'Returns one resource by its id' do
+      tags 'Resources'
+      produces 'application/json'
+      parameter name: :curriculum_id, in: :path, type: :string
+      parameter name: :learning_unit_id, in: :path, type: :string
+      parameter name: :resource_id, in: :path, type: :string
+
+      response '200', 'Success' do
+        schema type: :object, properties: {
+          'id': { type: :integer },
+          'name': { type: :string },
+          'url': { type: :string },
+          'description': { type: :string }
+        }
+
+        run_test!
+      end
+    end
+  end
+
   # All Comments
   path '/api/curriculums/{curriculum_id}/learning_units/{learning_unit_id}/resources/{resource_id}/comments' do
     get 'Returns a list of all comments' do

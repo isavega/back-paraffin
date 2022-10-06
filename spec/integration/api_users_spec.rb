@@ -14,7 +14,7 @@ RSpec.describe 'API User', type: :request do
       produces 'application/json'
 
       response '200', 'Success' do
-        schema type: :objet, items: {
+        schema type: :object, items: {
           properties: {
             id: { type: :integer },
             name: { type: :string },

@@ -54,4 +54,15 @@ class ApiResourcesController < ApiApplicationController
     render json: comment, only: %i[content user_id resource_id],
            status: :created
   end
+
+  def create_evaluations
+    evaluation = ResourceEvaluation.create!(
+      evaluation: params[:evaluation],
+      user_id: params[:user_id],
+      resource_id: params[:resource_id]
+    )
+
+    render json: evaluation, only: %i[evaluation user_id resource_id],
+           status: :created
+  end
 end

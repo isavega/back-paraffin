@@ -159,9 +159,6 @@ RSpec.describe 'API Resources', type: :request do
           user_id: { type: :integer },
           resource_id: { type: :integer }
         }
-        let(:curriculum_id) { create(:curriculum).id }
-        let(:learning_unit_id) { create(:learning_unit).id }
-        let(:resource_id) { create(:resource).id }
         let(:resource_comment) { create(:resource_comment, resource:, user:) }
         run_test!
       end
@@ -193,9 +190,6 @@ RSpec.describe 'API Resources', type: :request do
           user_id: { type: :integer },
           resource_id: { type: :integer }
         }
-        let(:curriculum_id) { create(:curriculum).id }
-        let(:learning_unit_id) { create(:learning_unit).id }
-        let(:resource_id) { create(:resource).id }
         let(:resource_evaluation) { create(:resource_evaluation, resource:, user:) }
         run_test!
       end

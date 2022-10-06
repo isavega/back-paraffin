@@ -25,15 +25,6 @@ RSpec.describe 'API User', type: :request do
         let(:user_id) { create(:user).id }
         run_test!
       end
-
-      # response '401', 'Unauthorized', skip_before: true do
-      #   schema type: :object, items: {
-      #     properties: {
-      #       error: { type: :string }
-      #     }
-      #   }
-      #   run_test!
-      # end
     end
   end
 end

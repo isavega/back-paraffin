@@ -3,8 +3,21 @@ class ApiLearningUnitsController < ApiApplicationController
     learning_units = Curriculum
                      .find(params[:curriculum_id])
                      .learning_units
-    render json: learning_units, only: %i[id name description]
+                     .includes(:completed_learning_units)
+    checkpoints = []
+
+    learning_units.each do |checkpoint|
+      json_hash ={
+        learning_unit_id: checkpoint.id,
+        name: checkpoint.name,
+        description: checkpoint.description,
+        completed:  checkpoint.completed_learning_units.exists?
+      }
+      checkpoints << json_hash
+    end
+    render json: checkpoints
   end
+
 
   def show
     learning_unit = Curriculum

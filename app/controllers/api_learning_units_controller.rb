@@ -21,8 +21,6 @@ class ApiLearningUnitsController < ApiApplicationController
   def show
     learning_unit = Curriculum
                     .find(params[:curriculum_id])
-                    .includes(:completed_learning_units)
-                    .find(params[:user_id])
     render json: learning_unit, only: %i[id name description]
   end
 

@@ -29,7 +29,7 @@ RSpec.describe 'ApiLearningUnits', type: :request do
             id: { type: :integer },
             name: { type: :string },
             description: { type: :string },
-            completed: {type: :boolean}
+            completed: { type: :boolean }
           }
         }
         run_test!

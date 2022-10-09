@@ -7,8 +7,7 @@ user1 = User.create(name: 'Isa', email: 'isa@fin.com', password: 'piscola')
 user2 = User.create(name: 'Cecy', email: 'cecy@fin.com', password: 'terremoto')
 user3 = User.create(name: 'Vane', email: 'vane@fin.com', password: 'gintonic')
 fullstack_curriculum = Curriculum.create(name: 'Fullstack Developer', description: 'Very complete curriculum to turn yourself into a complete software developer, with both backend and frontend knowledge, from the basics.')
-data_scientist_curriculum = Curriculum.create(name: 'Data Scientist', description: 'This curriculum is what you have been looking for to become the greatest data scientist possible in just a few months. Check it out and start learning.')
-ux_ui_curriculum = Curriculum.create(name: 'UX/UI Designer', description: 'Creativity and styling are not everything you need in order to become a master of UX/UI design. Understanding who uses your platform and how they do it is key.')
+
 ruby_learning_unit = LearningUnit.create(name: 'Ruby', description: 'A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.')
 rails_learning_unit = LearningUnit.create(name: 'Rails', description: 'Rails is a full-stack framework. It ships with all the tools needed to build amazing web apps on both the front and back end. Great for starters.')
 git_learning_unit = LearningUnit.create(name: 'Git', description: 'Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.')
@@ -19,26 +18,13 @@ html_learning_unit = LearningUnit.create(name: 'HTML', description: 'The HyperTe
 javascript_learning_unit = LearningUnit.create(name: 'JavaScript', description: "Because JavaScript is a great language for coding beginners, we've gathered some of the best learning resources around and built a JavaScript course to help new developers get up and running.")
 figma_learning_unit = LearningUnit.create(name: 'Figma', description: 'With Figma, everyone works towards a shared goal. This has enabled our product teams to ship new products faster and feel more confident in their decisions.')
 
-CurriculumAffiliation.create(curriculum: fullstack_curriculum,
-                             learning_unit: git_learning_unit)
+
 CurriculumAffiliation.create(curriculum: fullstack_curriculum,
                              learning_unit: ruby_learning_unit)
 CurriculumAffiliation.create(curriculum: fullstack_curriculum,
                              learning_unit: rails_learning_unit)
 
-CurriculumAffiliation.create(curriculum: data_scientist_curriculum,
-                             learning_unit: r_learning_unit)
-CurriculumAffiliation.create(curriculum: data_scientist_curriculum,
-                             learning_unit: sql_learning_unit)
-CurriculumAffiliation.create(curriculum: data_scientist_curriculum,
-                             learning_unit: python_learning_unit)
 
-CurriculumAffiliation.create(curriculum: ux_ui_curriculum,
-                             learning_unit: html_learning_unit)
-CurriculumAffiliation.create(curriculum: ux_ui_curriculum,
-                             learning_unit: javascript_learning_unit)
-CurriculumAffiliation.create(curriculum: ux_ui_curriculum,
-                             learning_unit: figma_learning_unit)
 
 f_resource = Resource.create(user: user1, learning_unit: ruby_learning_unit,
                              name: 'Ruby for dummies', url: 'https://www.codecademy.com/learn/learn-ruby',

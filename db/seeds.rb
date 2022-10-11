@@ -8,7 +8,7 @@ user2 = User.create(name: 'Cecy', email: 'cecy@fin.com', password: 'terremoto')
 user3 = User.create(name: 'Vane', email: 'vane@fin.com', password: 'gintonic')
 fullstack_curriculum = Curriculum.create(name: 'Fullstack Developer', description: 'Very complete curriculum to turn yourself into a complete software developer, with both backend and frontend knowledge, from the basics.')
 
-ruby_learning_unit = LearningUnit.create(name: 'Ruby', description: 'A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.')
+ruby_learning_unit = LearningUnit.create(name: 'Ruby', description: 'A dynamic, open source programming language with a focus on simplicity and productivity.')
 rails_learning_unit = LearningUnit.create(name: 'Rails', description: 'Rails is a full-stack framework. It ships with all the tools needed to build amazing web apps on both the front and back end. Great for starters.')
 git_learning_unit = LearningUnit.create(name: 'Git', description: 'Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.')
 r_learning_unit = LearningUnit.create(name: 'R', description: 'R is a free software environment for statistical computing and graphics. It compiles and runs on a wide variety of UNIX platforms, Windows and MacOS.')
@@ -34,8 +34,6 @@ s_resource = Resource.create(user: user2, learning_unit: ruby_learning_unit,
                              description: "Time to dive deep into Ruby, the language 'designed for programmer happiness.' You'll cover object-oriented design, testing, and data structures - essential knowledge for learning other programming languages, too!")
 ResourceComment.create(user: user2, resource: f_resource,
                        content: 'Very good resource!')
-ResourceComment.create(user: user3, resource: f_resource,
-                       content: 'Amazing! Everything was incredibly clear!')
 ResourceEvaluation.create(user: user2, resource: f_resource, evaluation: 3)
 ResourceEvaluation.create(user: user1, resource: s_resource, evaluation: 1)
 CompletedLearningUnit.create(user: user3, learning_unit: ruby_learning_unit)
